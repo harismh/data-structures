@@ -5,10 +5,7 @@ var Queue = function() {
   instance.storage = {};
   instance.length = 0;
 
-  instance.size = queueMethods.size;
-  instance.enqueue = queueMethods.enqueue;
-  instance.dequeue = queueMethods.dequeue;
-  instance.return = queueMethods.return;
+  _.extend(instance, queueMethods);
 
   return instance;
 
