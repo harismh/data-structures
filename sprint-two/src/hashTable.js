@@ -7,7 +7,7 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var hash = getIndexBelowMaxForKey(k, this._limit);
-  var storage = this._storage.return();
+  var storage = this._storage;
   if (Array.isArray(storage[hash])) {
     var tuple = storage[hash];
 
@@ -32,7 +32,7 @@ HashTable.prototype.insert = function(k, v) {
 
 HashTable.prototype.retrieve = function(k) {
   var hash = getIndexBelowMaxForKey(k, this._limit);
-  var storage = this._storage.return();
+  var storage = this._storage;
   if (Array.isArray(storage[hash])) {
     var tuple = storage[hash];
     
@@ -52,7 +52,7 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var hash = getIndexBelowMaxForKey(k, this._limit);
-  var storage = this._storage.return();
+  var storage = this._storage;
   if (Array.isArray(storage[hash])) {
     var tuple = storage[hash];
 
