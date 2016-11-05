@@ -1,6 +1,8 @@
 // Instantiate a new graph
 var Graph = function() {
+  // create graph object
   this.graph = {};
+  // create edges object
   this.edges = {};
 };
 
@@ -9,13 +11,17 @@ Graph.prototype.addNode = function(node) {
   if (!node) {
     return 'must pass integer value';
   }
+  // create new object with node's value
   var newNode = {value: node};
+  // set graph's key to node value and value to node
   this.graph[node] = newNode;
+  // set edges key to node value 
   this.edges[node] = {};
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  //lookup node in graph object
   if (this.graph[node]) {
     return true;
   } else {
@@ -25,6 +31,7 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  //iterate through edges keys for node
   for (var key in this.edges) {
     delete this.edges[key][node];
   }
@@ -35,12 +42,15 @@ Graph.prototype.removeNode = function(node) {
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
+  //lookup edge fromNode toNode property
   return this.edges[fromNode][toNode] || false;
 };
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
+  //check if nodes exist
   if (this.graph[fromNode] && this.graph[toNode]) {
+    //set edges prop
     this.edges[fromNode][toNode] = true;
     this.edges[toNode][fromNode] = true;
   }
@@ -48,6 +58,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  //check if nodes exist
   if (this.edges[fromNode] && this.edges[toNode]) {
     delete this.edges[fromNode][toNode];
     delete this.edges[toNode][fromNode];
