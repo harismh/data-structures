@@ -20,6 +20,10 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.right.left.value).to.equal(6);
   });
 
+  it('should not accept undefined values', function() {
+    expect(binarySearchTree.insert(undefined)).to.equal('must pass in integer value');
+  });
+
   it('should have a working "contains" method', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);

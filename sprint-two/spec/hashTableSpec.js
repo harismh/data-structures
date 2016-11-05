@@ -47,6 +47,20 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should be able to find keys within multiple insertions', function() {
+    hashTable.insert('Steven', 'Seagal');
+    hashTable.insert('George', 'Harrison');
+    hashTable.insert('Dr.', 'Sunshine');
+    hashTable.insert('Mr.', 'Doob');
+    expect(hashTable.retrieve('Dr.')).to.equal('Sunshine');
+  });
+
+  it('should be able to find similarily-named keys', function() {
+    hashTable.insert('John', 'Seagal');
+    hashTable.insert('JOHN', 'Harrison');
+    expect(hashTable.retrieve('JOHN')).to.equal('Harrison');
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

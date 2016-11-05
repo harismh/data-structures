@@ -68,4 +68,10 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should not add undefined nodes', function() {
+    graph.addNode(5);
+    expect(graph.addNode(undefined)).to.equal('must pass integer value');
+    
+  });
 });

@@ -7,6 +7,9 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
+  if (!item) {
+    return 'must pass in item';
+  }
   this[item] = item;
 };
 

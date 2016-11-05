@@ -52,4 +52,11 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should update tail property with latest node', function() {
+    linkedList.addToTail(7);
+    linkedList.addToTail(9);
+    linkedList.addToTail(3);
+    linkedList.addToTail(5);
+    expect(linkedList.tail.value).to.equal(5);
+  });
 });

@@ -6,6 +6,9 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  if (!node) {
+    return 'must pass integer value';
+  }
   var newNode = {value: node};
   this.graph[node] = newNode;
   this.edges[node] = {};

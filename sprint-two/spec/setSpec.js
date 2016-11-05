@@ -24,4 +24,8 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should not be able to add undefined items', function() {
+    expect(set.add(undefined)).to.equal('must pass in item');
+  });
+
 });

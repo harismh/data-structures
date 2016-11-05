@@ -11,6 +11,10 @@ var BinarySearchTree = function(value) {
 var BinarySearchTreeMethods = {};
 
 BinarySearchTreeMethods.insert = function(value) {
+  if (!value) {
+    return 'must pass in integer value';
+  }
+  
   var node = {value: value, left: null, right: null};
   
   var recurse = function(current) {
